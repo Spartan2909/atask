@@ -6,8 +6,9 @@ license = "MIT OR Apache-2.0"
 description = "An async task implementation"
 documentation = "https://docs.rs/atask"
 repository = "https://github.com/Spartan2909/atask"
-readme = "README.md"
+readme = "./README.md"
 categories = ["asynchronous", "concurrency", "no-std"]
+keywords = ["async", "executor", "future"]
 
 [dependencies]
 pin-project = "1.1.10"
