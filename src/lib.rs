@@ -55,8 +55,11 @@ impl<M> Builder<M> {
     /// The default is `()`.
     #[inline]
     #[must_use]
-    pub fn metadata(self, metadata: M) -> Builder<M> {
-        Builder { metadata, ..self }
+    pub fn metadata<T>(self, metadata: T) -> Builder<T> {
+        Builder {
+            metadata,
+            catch_unwind: self.catch_unwind,
+        }
     }
 
     /// Whether panics that occur during polling should be caught.

@@ -407,6 +407,13 @@ impl<M> Runnable<M> {
             self.wake_waiter();
         }
     }
+
+    /// The metadata associated with this task.
+    pub fn metadata(&self) -> &M {
+        let ptr = (self.handle.header().vtable().metadata)(&self.handle);
+        // SAFETY: This is the correct metadata type.
+        unsafe { &*ptr.cast().as_ptr() }
+    }
 }
 
 // SAFETY: Must be ensured on construction.
